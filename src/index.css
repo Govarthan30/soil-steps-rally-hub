@@ -73,7 +73,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
+    @apply bg-background text-foreground font-inter transition-colors duration-300;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -90,6 +90,10 @@
     background: linear-gradient(to bottom, #f0fdf4, #ffffff);
   }
 
+  .dark .section-gradient {
+    background: linear-gradient(to bottom, #0f172a, #1e293b);
+  }
+
   .card-hover {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
   }
@@ -100,4 +104,54 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .mission-float {
+    animation: missionFloat 4s ease-in-out infinite;
+  }
+
+  .vision-glow {
+    animation: visionGlow 3s ease-in-out infinite alternate;
+  }
+
+  .rally-pulse {
+    animation: rallyPulse 2s ease-in-out infinite;
+  }
+
+  .education-wave {
+    animation: educationWave 6s ease-in-out infinite;
+  }
+}
+
+@keyframes missionFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes visionGlow {
+  0% { 
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    transform: scale(1);
+  }
+  100% { 
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rallyPulse {
+  0%, 100% { 
+    background-size: 100% 100%;
+    opacity: 1;
+  }
+  50% { 
+    background-size: 110% 110%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes educationWave {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(10px) translateY(-5px); }
+  50% { transform: translateX(0px) translateY(-10px); }
+  75% { transform: translateX(-10px) translateY(-5px); }
 }
