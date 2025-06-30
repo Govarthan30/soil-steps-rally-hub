@@ -67,9 +67,9 @@ export default {
 					green: '#22c55e',
 					'green-dark': '#16a34a',
 					'green-light': '#86efac',
-					yellow: '#fbbf24',
-					'yellow-light': '#fef3c7',
-					'yellow-dark': '#d97706'
+					orange: '#f56539',
+					'orange-light': '#fed7cc',
+					'orange-dark': '#ea580c'
 				}
 			},
 			fontFamily: {

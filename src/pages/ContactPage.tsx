@@ -1,12 +1,14 @@
 
 import { useState, useEffect } from "react";
-import { Mail, Instagram, Linkedin, MapPin, Users, Send, CheckCircle, Sparkles, Rocket, Target } from "lucide-react";
+import { Mail, Instagram, Linkedin, MapPin, Users, Send, CheckCircle, Sparkles, Rocket, Target, TreePine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import TreeGrowthIndicator from "@/components/TreeGrowthIndicator";
+import InteractiveCounter from "@/components/InteractiveCounter";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +21,7 @@ const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [interactionCount, setInteractionCount] = useState(0);
   const [showMotivationBoost, setShowMotivationBoost] = useState(false);
+  const [treeStage, setTreeStage] = useState<'seed' | 'sprout' | 'tree'>('seed');
   const { toast } = useToast();
 
   // Interactive counter for engagement
@@ -28,6 +31,18 @@ const ContactPage = () => {
     }, 3000);
     return () => clearInterval(timer);
   }, []);
+
+  // Tree growth based on form completion
+  useEffect(() => {
+    const completedFields = Object.values(formData).filter(value => value.length > 0).length;
+    if (completedFields >= 3) {
+      setTreeStage('tree');
+    } else if (completedFields >= 1) {
+      setTreeStage('sprout');
+    } else {
+      setTreeStage('seed');
+    }
+  }, [formData]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -94,7 +109,8 @@ const ContactPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex items-center justify-center dark:from-primary/20 dark:to-secondary/20">
         <div className="max-w-2xl mx-auto px-4 text-center animate-fade-in">
           <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-primary/20 vision-glow">
-            <div className="relative">
+            <div className="relative mb-8">
+              <TreeGrowthIndicator stage="tree" size="lg" showSoil />
               <CheckCircle className="h-20 w-20 text-primary mx-auto mb-6 rally-pulse" />
               <Sparkles className="absolute -top-2 -right-2 h-8 w-8 text-secondary animate-spin" />
             </div>
@@ -112,22 +128,17 @@ const ContactPage = () => {
                 Your Mission Journey
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-center space-x-3 education-wave">
-                  <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                  <span className="text-sm text-muted-foreground">Application review within 2-3 days</span>
-                </div>
-                <div className="flex items-center space-x-3 mission-float">
-                  <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-                  <span className="text-sm text-muted-foreground">Welcome package with guidelines</span>
-                </div>
-                <div className="flex items-center space-x-3 vision-glow">
-                  <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                  <span className="text-sm text-muted-foreground">Orientation session invitation</span>
-                </div>
-                <div className="flex items-center space-x-3 education-wave">
-                  <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-                  <span className="text-sm text-muted-foreground">Workshop matching in your area</span>
-                </div>
+                {[
+                  "Application review within 2-3 days",
+                  "Welcome package with guidelines", 
+                  "Orientation session invitation",
+                  "Workshop matching in your area"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-3 education-wave">
+                    <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                    <span className="text-sm text-muted-foreground">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
             
@@ -160,8 +171,8 @@ const ContactPage = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 mission-float"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-fade-in">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6 vision-glow">
-              <Users className="h-10 w-10 text-primary rally-pulse" />
+            <div className="mb-6">
+              <TreeGrowthIndicator stage={treeStage} size="lg" showSoil />
             </div>
             <h1 className="font-poppins font-bold text-4xl md:text-6xl text-foreground mb-6">
               Join the <span className="text-gradient mission-float inline-block">Rally</span>
@@ -180,6 +191,11 @@ const ContactPage = () => {
               </span>
             </div>
           </div>
+
+          {/* Interactive Statistics */}
+          <div className="mb-16">
+            <InteractiveCounter />
+          </div>
         </div>
       </section>
 
@@ -192,6 +208,7 @@ const ContactPage = () => {
                 <CardTitle className="font-poppins text-2xl text-foreground flex items-center">
                   <Send className="h-6 w-6 text-primary mr-3 mission-float" />
                   Student Volunteer Registration
+                  <TreePine className="h-5 w-5 text-secondary ml-2 leaf-rustle" />
                 </CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
                   Fill out this form to join our team of passionate student volunteers. 
@@ -372,32 +389,20 @@ const ContactPage = () => {
               </CardContent>
             </Card>
 
-            {/* Statistics */}
+            {/* Growing Impact */}
             <Card className="shadow-lg border-0 bg-gradient-to-br from-secondary/5 to-primary/5 backdrop-blur-sm border border-secondary/10 education-wave">
               <CardHeader>
                 <CardTitle className="font-poppins text-xl text-foreground flex items-center">
-                  <Sparkles className="h-5 w-5 text-secondary mr-2 animate-spin" />
-                  Join 50+ Student Volunteers
+                  <TreePine className="h-5 w-5 text-secondary mr-2 tree-grow" />
+                  Growing Impact Together
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  {[
-                    { value: "150+", label: "Students Reached", color: "primary" },
-                    { value: "25+", label: "Workshops", color: "secondary" },
-                    { value: "10+", label: "Cities", color: "primary" },
-                    { value: "100%", label: "Impact", color: "secondary" }
-                  ].map((stat, index) => (
-                    <div key={index} className="group cursor-pointer">
-                      <div className={`text-2xl font-bold text-${stat.color} group-hover:scale-110 transition-transform`}>
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <CardContent className="text-center">
+                <TreeGrowthIndicator size="md" showSoil />
+                <p className="text-sm text-muted-foreground mt-4">
+                  Like trees in soil, our volunteers grow stronger together, 
+                  creating a forest of change across India.
+                </p>
               </CardContent>
             </Card>
           </div>
