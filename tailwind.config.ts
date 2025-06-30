@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,9 +66,9 @@ export default {
 					green: '#22c55e',
 					'green-dark': '#16a34a',
 					'green-light': '#86efac',
-					orange: '#f56539',
-					'orange-light': '#fed7cc',
-					'orange-dark': '#ea580c'
+					brown: '#8b4513',
+					'brown-light': '#d2691e',
+					'brown-dark': '#654321'
 				}
 			},
 			fontFamily: {
@@ -133,6 +132,28 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'soil-to-tree': {
+					'0%': {
+						transform: 'scale(0.5) translateY(20px)',
+						opacity: '0.3'
+					},
+					'25%': {
+						transform: 'scale(0.7) translateY(10px)',
+						opacity: '0.6'
+					},
+					'50%': {
+						transform: 'scale(0.9) translateY(5px)',
+						opacity: '0.8'
+					},
+					'75%': {
+						transform: 'scale(1.1) translateY(-2px)',
+						opacity: '0.9'
+					},
+					'100%': {
+						transform: 'scale(1) translateY(0px)',
+						opacity: '1'
+					}
 				}
 			},
 			animation: {
@@ -141,7 +162,8 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.8s ease-out',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'soil-to-tree': 'soil-to-tree 4s ease-in-out infinite'
 			}
 		}
 	},

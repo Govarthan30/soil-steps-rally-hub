@@ -105,9 +105,23 @@ const ContactPage = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-100 via-green-50 to-green-200 dark:from-green-900 dark:via-green-800 dark:to-green-700 flex items-center justify-center">
-        <div className="max-w-2xl mx-auto px-4 text-center animate-fade-in">
-          <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-primary/20 vision-glow">
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 dark:from-green-900 dark:via-emerald-900 dark:to-green-800 flex items-center justify-center relative overflow-hidden">
+        {/* Background Images */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+          }}
+        />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+          }}
+        />
+        
+        <div className="max-w-2xl mx-auto px-4 text-center animate-fade-in relative z-10">
+          <div className="bg-card/90 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-primary/20 vision-glow">
             <div className="relative mb-8">
               <TreeGrowthIndicator stage="tree" size="lg" showSoil />
               <CheckCircle className="h-20 w-20 text-primary mx-auto mb-6 rally-pulse" />
@@ -164,11 +178,25 @@ const ContactPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 via-green-50 to-green-200 dark:from-green-900 dark:via-green-800 dark:to-green-700">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 dark:from-green-900 dark:via-emerald-900 dark:to-green-800 relative overflow-hidden">
+      {/* Background Images */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+        }}
+      />
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+        }}
+      />
+      
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-200/50 to-green-300/50 dark:from-green-800/50 dark:to-green-700/50 mission-float"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-green-200/30 to-emerald-300/30 dark:from-green-800/30 dark:to-emerald-700/30 mission-float"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <div className="mb-6">
               <TreeGrowthIndicator stage={treeStage} size="lg" showSoil />
@@ -198,12 +226,12 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="animate-fade-in">
-            <Card className="shadow-2xl border-0 bg-card/80 backdrop-blur-sm border border-primary/10">
-              <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-t-lg">
+            <Card className="shadow-2xl border-0 bg-card/90 backdrop-blur-sm border border-primary/10">
+              <CardHeader className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-t-lg">
                 <CardTitle className="font-poppins text-2xl text-foreground flex items-center">
                   <Send className="h-6 w-6 text-primary mr-3 mission-float" />
                   Student Volunteer Registration
@@ -327,7 +355,7 @@ const ContactPage = () => {
             {/* Contact Methods */}
             <div className="space-y-6">
               {contactInfo.map((contact, index) => (
-                <Card key={index} className={`shadow-lg border-0 card-hover bg-card/80 backdrop-blur-sm border border-primary/10 ${contact.animation}`}>
+                <Card key={index} className={`shadow-lg border-0 card-hover bg-card/90 backdrop-blur-sm border border-primary/10 ${contact.animation}`}>
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className={`w-12 h-12 bg-${contact.color}/10 rounded-full flex items-center justify-center flex-shrink-0 vision-glow`}>
@@ -363,7 +391,7 @@ const ContactPage = () => {
             </div>
 
             {/* Why Volunteer */}
-            <Card className="shadow-lg border-0 bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm border border-primary/10 vision-glow">
+            <Card className="shadow-lg border-0 bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-sm border border-primary/10 vision-glow">
               <CardHeader>
                 <CardTitle className="font-poppins text-xl text-foreground flex items-center">
                   <MapPin className="h-5 w-5 text-primary mr-2 mission-float" />
@@ -389,10 +417,10 @@ const ContactPage = () => {
             </Card>
 
             {/* Growing Impact */}
-            <Card className="shadow-lg border-0 bg-gradient-to-br from-secondary/5 to-primary/5 backdrop-blur-sm border border-secondary/10 education-wave">
+            <Card className="shadow-lg border-0 bg-gradient-to-br from-secondary/10 to-primary/10 backdrop-blur-sm border border-secondary/10 education-wave">
               <CardHeader>
                 <CardTitle className="font-poppins text-xl text-foreground flex items-center">
-                  <TreePine className="h-5 w-5 text-secondary mr-2 tree-grow" />
+                  <TreePine className="h-5 w-5 text-secondary mr-2 soil-to-tree-grow" />
                   Growing Impact Together
                 </CardTitle>
               </CardHeader>

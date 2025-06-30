@@ -22,9 +22,12 @@ const Navigation = () => {
     <nav className="bg-background/80 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-border/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Logo - prepared for logo.png replacement */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <TreePine className="h-8 w-8 text-primary tree-grow" />
+            <div className="w-8 h-8 flex items-center justify-center">
+              {/* This will be replaced with logo.png */}
+              <TreePine className="h-8 w-8 text-primary soil-to-tree-grow" />
+            </div>
             <span className="font-poppins font-bold text-xl text-foreground group-hover:text-primary transition-colors">
               Soil Steps
             </span>

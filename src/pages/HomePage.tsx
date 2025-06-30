@@ -8,7 +8,7 @@ const HomePage = () => {
   
   const taglines = [
     { icon: BookOpen, text: "Equal Access to Learning", color: "text-soil-green" },
-    { icon: Rocket, text: "Empowering the Next Generation", color: "text-soil-yellow" },
+    { icon: Rocket, text: "Empowering the Next Generation", color: "text-secondary" },
     { icon: Globe, text: "Creating Changemakers Through Education", color: "text-soil-green" },
   ];
 
@@ -30,21 +30,27 @@ const HomePage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient text-white py-20 lg:py-32 relative overflow-hidden">
-        {/* Background Image */}
+        {/* Multiple Background Images */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fade-in">
             <h1 className="font-poppins font-bold text-4xl md:text-6xl lg:text-7xl mb-6">
               Soil Steps presents
               <br />
-              <span className="text-yellow-200">KARKAI INDREY</span>
+              <span className="text-gradient mission-float inline-block">KARKAI INDREY</span>
             </h1>
             <div className="text-xl md:text-2xl lg:text-3xl font-medium mb-4">
               A Rally of Education
@@ -55,7 +61,7 @@ const HomePage = () => {
               <br />
               <span className="font-semibold">Powered by Passion, Driven by Purpose.</span>
               <br />
-              <span className="text-yellow-200">Learning for All, Dreams Without Limits.</span>
+              <span className="text-orange-200">Learning for All, Dreams Without Limits.</span>
             </p>
 
             {/* Animated Taglines */}
@@ -63,9 +69,9 @@ const HomePage = () => {
               <div className="flex items-center space-x-3 animate-fade-in" key={currentTagline}>
                 {(() => {
                   const CurrentIcon = taglines[currentTagline].icon;
-                  return <CurrentIcon className="h-8 w-8 text-yellow-200" />;
+                  return <CurrentIcon className="h-8 w-8 text-orange-200" />;
                 })()}
-                <span className="text-2xl font-medium text-yellow-200">
+                <span className="text-2xl font-medium text-orange-200">
                   {taglines[currentTagline].text}
                 </span>
               </div>
