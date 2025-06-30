@@ -54,7 +54,7 @@ const Footer = () => {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/company/soil-steps"
+                  href="https://www.linkedin.com/in/soil-steps-57b653351/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-soil-green transition-colors"

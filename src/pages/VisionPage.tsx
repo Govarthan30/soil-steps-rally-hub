@@ -1,9 +1,9 @@
 
 import { Lightbulb, Users, Globe, ArrowRight, BookOpen } from "lucide-react";
-
+const backgroundGradient = "bg-gradient-to-br from-green-900 via-emerald-900 to-green-800";
 const VisionPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <div className={`min-h-screen ${backgroundGradient} relative overflow-hidden`}>
       {/* Hero Section */}
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

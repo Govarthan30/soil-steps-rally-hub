@@ -1,10 +1,28 @@
 import { useState, useEffect } from "react";
-import { Mail, Instagram, Linkedin, MapPin, Users, Send, CheckCircle, Sparkles, Rocket, Target, TreePine } from "lucide-react";
+import {
+  Mail,
+  Instagram,
+  Linkedin,
+  MapPin,
+  Users,
+  Send,
+  CheckCircle,
+  Sparkles,
+  Rocket,
+  Target,
+  TreePine
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import TreeGrowthIndicator from "@/components/TreeGrowthIndicator";
 import InteractiveCounter from "@/components/InteractiveCounter";
@@ -20,49 +38,57 @@ const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [interactionCount, setInteractionCount] = useState(0);
   const [showMotivationBoost, setShowMotivationBoost] = useState(false);
-  const [treeStage, setTreeStage] = useState<'seed' | 'sprout' | 'tree'>('seed');
+  const [treeStage, setTreeStage] = useState<"seed" | "sprout" | "tree">("seed");
   const { toast } = useToast();
 
-  // Interactive counter for engagement
   useEffect(() => {
     const timer = setInterval(() => {
-      setInteractionCount(prev => prev + 1);
+      setInteractionCount((prev) => prev + 1);
     }, 3000);
     return () => clearInterval(timer);
   }, []);
 
-  // Tree growth based on form completion
   useEffect(() => {
-    const completedFields = Object.values(formData).filter(value => value.length > 0).length;
+    const completedFields = Object.values(formData).filter(
+      (value) => value.length > 0
+    ).length;
     if (completedFields >= 3) {
-      setTreeStage('tree');
+      setTreeStage("tree");
     } else if (completedFields >= 1) {
-      setTreeStage('sprout');
+      setTreeStage("sprout");
     } else {
-      setTreeStage('seed');
+      setTreeStage("seed");
     }
   }, [formData]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value
     }));
 
-    // Show motivation boost when user starts typing motivation
-    if (name === 'motivation' && value.length > 10) {
+    if (name === "motivation" && value.length > 10) {
       setShowMotivationBoost(true);
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.phone || !formData.location || !formData.motivation) {
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.location ||
+      !formData.motivation
+    ) {
       toast({
         title: "Mission Incomplete! 🎯",
-        description: "Every field is a step towards our vision. Please complete all fields.",
+        description:
+          "Every field is a step towards our vision. Please complete all fields.",
         variant: "destructive"
       });
       return;
@@ -72,7 +98,7 @@ const ContactPage = () => {
       setIsSubmitted(true);
       toast({
         title: "Welcome to the Rally! 🚀",
-        description: "Your journey towards transforming education begins now!",
+        description: "Your journey towards transforming education begins now!"
       });
     }, 1000);
   };
@@ -90,7 +116,7 @@ const ContactPage = () => {
       title: "Visual Journey",
       details: ["@soil_steps"],
       link: "https://instagram.com/soil_steps",
-      color: "secondary",
+      color: "pink",
       animation: "vision-glow"
     },
     {
@@ -103,39 +129,47 @@ const ContactPage = () => {
     }
   ];
 
+  const backgroundGradient =
+    "bg-gradient-to-br from-green-900 via-emerald-900 to-green-800";
+
+  const getColorClass = (base: string) => `text-${base}`;
+
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 dark:from-green-900 dark:via-emerald-900 dark:to-green-800 flex items-center justify-center relative overflow-hidden">
-        {/* Background Images */}
-        <div 
+      <div className={`min-h-screen ${backgroundGradient} flex items-center justify-center relative overflow-hidden`}>
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
           }}
         />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
           }}
         />
-        
         <div className="max-w-2xl mx-auto px-4 text-center animate-fade-in relative z-10">
           <div className="bg-card/90 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-primary/20 vision-glow">
             <div className="relative mb-8">
               <TreeGrowthIndicator stage="tree" size="lg" showSoil />
               <CheckCircle className="h-20 w-20 text-primary mx-auto mb-6 rally-pulse" />
-              <Sparkles className="absolute -top-2 -right-2 h-8 w-8 text-secondary animate-spin" />
+              <Sparkles className="absolute -top-2 -right-2 h-8 w-8 text-pink animate-spin" />
             </div>
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-4 text-gradient">
               Welcome to the Movement! 🌱
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              Thank you, <span className="font-semibold text-primary mission-float inline-block">{formData.name}</span>, 
-              for joining Soil Steps as a student volunteer. Your passion for education will help us reach more children and create lasting impact.
+              Thank you,{" "}
+              <span className="font-semibold text-primary mission-float inline-block">
+                {formData.name}
+              </span>
+              , for joining Soil Steps as a student volunteer. Your passion for
+              education will help us reach more children and create lasting
+              impact.
             </p>
-            
-            <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-6 mb-8 dark:from-primary/10 dark:to-secondary/10">
+
+            <div className="bg-gradient-to-r from-primary/5 to-pink/5 rounded-2xl p-6 mb-8">
               <h3 className="font-poppins font-semibold text-xl text-foreground mb-4 flex items-center justify-center">
                 <Target className="h-6 w-6 mr-2 text-primary" />
                 Your Mission Journey
@@ -143,29 +177,32 @@ const ContactPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
                   "Application review within 2-3 days",
-                  "Welcome package with guidelines", 
+                  "Welcome package with guidelines",
                   "Orientation session invitation",
                   "Workshop matching in your area"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-3 education-wave">
+                  <div
+                    key={index}
+                    className="flex items-center space-x-3 education-wave"
+                  >
                     <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
                     <span className="text-sm text-muted-foreground">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={() => window.location.href = '/workshops'}
+              <Button
+                onClick={() => (window.location.href = "/workshops")}
                 className="bg-primary hover:bg-primary/90 rally-pulse"
               >
                 <Rocket className="mr-2 h-4 w-4" />
                 Explore Workshops
               </Button>
-              <Button 
+              <Button
                 variant="outline"
-                onClick={() => window.location.href = '/'}
+                onClick={() => (window.location.href = "/")}
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground mission-float"
               >
                 Back to Home
@@ -178,8 +215,7 @@ const ContactPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 dark:from-green-900 dark:via-emerald-900 dark:to-green-800 relative overflow-hidden">
-      {/* Background Images */}
+    <div className={`min-h-screen ${backgroundGradient} relative overflow-hidden`}>
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
         style={{
