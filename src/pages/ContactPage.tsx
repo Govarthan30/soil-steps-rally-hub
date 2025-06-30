@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Mail, Instagram, Linkedin, MapPin, Users, Send, CheckCircle, Sparkles, Rocket, Target, TreePine } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -106,7 +105,7 @@ const ContactPage = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex items-center justify-center dark:from-primary/20 dark:to-secondary/20">
+      <div className="min-h-screen bg-gradient-to-br from-green-100 via-green-50 to-green-200 dark:from-green-900 dark:via-green-800 dark:to-green-700 flex items-center justify-center">
         <div className="max-w-2xl mx-auto px-4 text-center animate-fade-in">
           <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-primary/20 vision-glow">
             <div className="relative mb-8">
@@ -165,10 +164,10 @@ const ContactPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/10 dark:from-primary/10 dark:to-secondary/20">
+    <div className="min-h-screen bg-gradient-to-br from-green-100 via-green-50 to-green-200 dark:from-green-900 dark:via-green-800 dark:to-green-700">
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 mission-float"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-green-200/50 to-green-300/50 dark:from-green-800/50 dark:to-green-700/50 mission-float"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-fade-in">
             <div className="mb-6">
