@@ -1,5 +1,4 @@
-
-import { Target, Users, BookOpen, Bridge, Zap } from "lucide-react";
+import { Target, Users, BookOpen, Link, Zap } from "lucide-react";
 
 const MissionPage = () => {
   const missions = [
@@ -40,7 +39,7 @@ const MissionPage = () => {
       color: "soil-green"
     },
     {
-      icon: Bridge,
+      icon: Link,
       title: "Bridge the Gap",
       description: "Connecting theoretical knowledge with practical applications, making learning relevant and immediately applicable to real-world challenges.",
       points: [
