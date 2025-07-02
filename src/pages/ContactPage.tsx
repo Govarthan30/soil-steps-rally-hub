@@ -116,7 +116,7 @@ const ContactPage = () => {
       title: "Visual Journey",
       details: ["@soil_steps"],
       link: "https://instagram.com/soil_steps",
-      color: "pink",
+      color: "blue",
       animation: "vision-glow"
     },
     {
@@ -154,12 +154,12 @@ const ContactPage = () => {
             <div className="relative mb-8">
               <TreeGrowthIndicator stage="tree" size="lg" showSoil />
               <CheckCircle className="h-20 w-20 text-primary mx-auto mb-6 rally-pulse" />
-              <Sparkles className="absolute -top-2 -right-2 h-8 w-8 text-pink animate-spin" />
+              <Sparkles className="absolute -top-2 -right-2 h-8 w-8 text-blue animate-spin" />
             </div>
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-4 text-gradient">
               Welcome to the Movement! 🌱
             </h1>
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-lg text-blue-600 mb-6">
               Thank you,{" "}
               <span className="font-semibold text-primary mission-float inline-block">
                 {formData.name}
@@ -169,7 +169,7 @@ const ContactPage = () => {
               impact.
             </p>
 
-            <div className="bg-gradient-to-r from-primary/5 to-pink/5 rounded-2xl p-6 mb-8">
+            <div className="bg-gradient-to-r from-primary/5 to-blue/5 rounded-2xl p-6 mb-8">
               <h3 className="font-poppins font-semibold text-xl text-foreground mb-4 flex items-center justify-center">
                 <Target className="h-6 w-6 mr-2 text-primary" />
                 Your Mission Journey
@@ -186,7 +186,7 @@ const ContactPage = () => {
                     className="flex items-center space-x-3 education-wave"
                   >
                     <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                    <span className="text-sm text-muted-foreground">{item}</span>
+                    <span className="text-sm text-blue-600">{item}</span>
                   </div>
                 ))}
               </div>
@@ -241,7 +241,7 @@ const ContactPage = () => {
               Join the <span className="text-gradient mission-float inline-block">Rally</span>
             </h1>
             <div className="w-32 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8 education-wave"></div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-blue-400 max-w-3xl mx-auto leading-relaxed">
               Be a Student Volunteer and become part of a movement that's transforming education across India. 
               Your passion can light up young minds and create lasting change.
             </p>
@@ -249,7 +249,7 @@ const ContactPage = () => {
             {/* Interactive counter */}
             <div className="mt-8 inline-flex items-center space-x-2 bg-card/50 backdrop-blur-sm rounded-full px-6 py-2 border border-primary/20">
               <Sparkles className="h-4 w-4 text-secondary animate-spin" />
-              <span className="text-sm font-medium text-muted-foreground">
+              <span className="text-sm text-green-400 font-medium ">
                 {interactionCount * 3}+ students inspired while you're here!
               </span>
             </div>
@@ -273,7 +273,7 @@ const ContactPage = () => {
                   Student Volunteer Registration
                   <TreePine className="h-5 w-5 text-secondary ml-2 leaf-rustle" />
                 </CardTitle>
-                <CardDescription className="text-base text-muted-foreground">
+                <CardDescription className="text-base text-blue-600">
                   Fill out this form to join our team of passionate student volunteers. 
                   Together, we'll bring quality education to every child.
                 </CardDescription>
@@ -366,7 +366,7 @@ const ContactPage = () => {
                     />
                     {showMotivationBoost && (
                       <div className="mt-2 p-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border-l-4 border-primary animate-fade-in">
-                        <p className="text-sm text-muted-foreground flex items-center">
+                        <p className="text-sm text-blue-600 flex items-center">
                           <Target className="h-4 w-4 mr-2 text-primary" />
                           Your passion is the first step towards creating change! 🌟
                         </p>
@@ -414,7 +414,7 @@ const ContactPage = () => {
                                   {detail}
                                 </a>
                               ) : (
-                                <span className="text-muted-foreground">{detail}</span>
+                                <span className="text-blue-600">{detail}</span>
                               )}
                             </div>
                           ))}
@@ -443,7 +443,7 @@ const ContactPage = () => {
                     "Get certificates and recognition",
                     "Be part of a nationwide movement"
                   ].map((item, index) => (
-                    <li key={index} className="flex items-center text-muted-foreground group">
+                    <li key={index} className="flex items-center text-blue-600 group">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0 group-hover:animate-pulse"></div>
                       <span className="group-hover:text-foreground transition-colors">{item}</span>
                     </li>
@@ -462,7 +462,7 @@ const ContactPage = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <TreeGrowthIndicator size="md" showSoil />
-                <p className="text-sm text-muted-foreground mt-4">
+                <p className="text-sm text-blue-600 mt-4">
                   Like trees in soil, our volunteers grow stronger together, 
                   creating a forest of change across India.
                 </p>

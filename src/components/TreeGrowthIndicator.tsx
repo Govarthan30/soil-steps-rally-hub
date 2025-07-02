@@ -53,7 +53,7 @@ const TreeGrowthIndicator = ({
         </div>
       </div>
       {showSoil && (
-        <div className="text-xs text-muted-foreground font-medium">
+        <div className="text-xs text-green-400 font-medium">
           {stages[currentStage] === 'seed' && "Planting Dreams"}
           {stages[currentStage] === 'sprout' && "Growing Knowledge"}
           {stages[currentStage] === 'tree' && "Flourishing Future"}

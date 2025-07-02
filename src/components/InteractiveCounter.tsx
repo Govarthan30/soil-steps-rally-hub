@@ -57,7 +57,7 @@ const AnimatedCounter = ({ icon: Icon, targetValue, label, duration = 2000, suff
         <div className="text-3xl font-bold text-primary">
           {Math.floor(count)}{suffix}
         </div>
-        <div className="text-sm font-medium text-muted-foreground text-center">
+        <div className="text-sm text-blue-100 font-medium text text-center">
           {label}
         </div>
       </div>

@@ -84,7 +84,7 @@ const VisionPage = () => {
                 <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-4">
                   Innovation Catalyst
                 </h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-yellow-700 mb-6 leading-relaxed">
                   Every question is a seed of innovation. We nurture curiosity and encourage students to think beyond 
                   conventional boundaries, fostering the next generation of problem-solvers and inventors.
                 </p>
@@ -147,82 +147,86 @@ const VisionPage = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-soil-green/10 rounded-full flex items-center justify-center">
-                    <Globe className="h-6 w-6 text-soil-green" />
-                  </div>
-                  <div>
-                    <h3 className="font-poppins font-semibold text-xl text-gray-900 mb-2">
-                      Global Impact, Local Roots
-                    </h3>
-                    <p className="text-gray-700">
-                      Starting from Indian communities and expanding globally, creating a network of educated, 
-                      empowered young leaders who understand both their local heritage and global opportunities.
-                    </p>
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-[#0a1d2c] py-20 px-6 md:px-12 text-white rounded-t-[3rem]">
+  <div className="animate-fade-in">
+    <div className="space-y-6">
+      {/* Item 1 */}
+      <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0 w-12 h-12 bg-[#2e5339] rounded-full flex items-center justify-center">
+          <Globe className="h-6 w-6 text-[#9bcf78]" />
+        </div>
+        <div>
+          <h3 className="font-poppins font-semibold text-xl text-white mb-2">
+            Global Impact, Local Roots
+          </h3>
+          <p className="text-gray-300">
+            Starting from Indian communities and expanding globally, creating a network of educated, 
+            empowered young leaders who understand both their local heritage and global opportunities.
+          </p>
+        </div>
+      </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-soil-yellow/10 rounded-full flex items-center justify-center">
-                    <Users className="h-6 w-6 text-soil-yellow" />
-                  </div>
-                  <div>
-                    <h3 className="font-poppins font-semibold text-xl text-gray-900 mb-2">
-                      Self-Sustaining Communities
-                    </h3>
-                    <p className="text-gray-700">
-                      Communities where education flows naturally from person to person, where knowledge is shared freely, 
-                      and where every individual contributes to collective growth and prosperity.
-                    </p>
-                  </div>
-                </div>
+      {/* Item 2 */}
+      <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0 w-12 h-12 bg-[#3a3219] rounded-full flex items-center justify-center">
+          <Users className="h-6 w-6 text-[#decf78]" />
+        </div>
+        <div>
+          <h3 className="font-poppins font-semibold text-xl text-white mb-2">
+            Self-Sustaining Communities
+          </h3>
+          <p className="text-gray-300">
+            Communities where education flows naturally from person to person, where knowledge is shared freely, 
+            and where every individual contributes to collective growth and prosperity.
+          </p>
+        </div>
+      </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-soil-green/10 rounded-full flex items-center justify-center">
-                    <Lightbulb className="h-6 w-6 text-soil-green" />
-                  </div>
-                  <div>
-                    <h3 className="font-poppins font-semibold text-xl text-gray-900 mb-2">
-                      Innovation Ecosystem
-                    </h3>
-                    <p className="text-gray-700">
-                      A thriving ecosystem where curiosity drives discovery, where students become researchers, 
-                      and where local innovations address global challenges.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* Item 3 */}
+      <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0 w-12 h-12 bg-[#2e5339] rounded-full flex items-center justify-center">
+          <Lightbulb className="h-6 w-6 text-[#9bcf78]" />
+        </div>
+        <div>
+          <h3 className="font-poppins font-semibold text-xl text-white mb-2">
+            Innovation Ecosystem
+          </h3>
+          <p className="text-gray-300">
+            A thriving ecosystem where curiosity drives discovery, where students become researchers, 
+            and where local innovations address global challenges.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <div className="animate-slide-in-right">
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-soil-green/10">
-                <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-6 text-center">
-                  By 2030, We Envision:
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-soil-green/5 rounded-lg">
-                    <span className="font-medium">Students Impacted</span>
-                    <span className="font-bold text-soil-green text-xl">10,000+</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-soil-yellow/5 rounded-lg">
-                    <span className="font-medium">Communities Reached</span>
-                    <span className="font-bold text-soil-yellow text-xl">100+</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-soil-green/5 rounded-lg">
-                    <span className="font-medium">Student Teachers</span>
-                    <span className="font-bold text-soil-green text-xl">1,000+</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-soil-yellow/5 rounded-lg">
-                    <span className="font-medium">Innovation Projects</span>
-                    <span className="font-bold text-soil-yellow text-xl">500+</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  {/* Right side - Vision card */}
+  <div className="animate-slide-in-right">
+    <div className="bg-[#13283c] rounded-2xl shadow-xl p-8 border border-[#2a4b68]">
+      <h3 className="font-poppins font-bold text-2xl text-white mb-6 text-center">
+        By 2030, We Envision:
+      </h3>
+      <div className="space-y-4">
+        <div className="flex items-center justify-between p-4 bg-[#1b3c2e] rounded-lg">
+          <span className="font-medium text-gray-200">Students Impacted</span>
+          <span className="font-bold text-[#9bcf78] text-xl">10,000+</span>
+        </div>
+        <div className="flex items-center justify-between p-4 bg-[#3f3a21] rounded-lg">
+          <span className="font-medium text-gray-200">Communities Reached</span>
+          <span className="font-bold text-[#decf78] text-xl">100+</span>
+        </div>
+        <div className="flex items-center justify-between p-4 bg-[#1b3c2e] rounded-lg">
+          <span className="font-medium text-gray-200">Student Teachers</span>
+          <span className="font-bold text-[#9bcf78] text-xl">1,000+</span>
+        </div>
+        <div className="flex items-center justify-between p-4 bg-[#3f3a21] rounded-lg">
+          <span className="font-medium text-gray-200">Innovation Projects</span>
+          <span className="font-bold text-[#decf78] text-xl">500+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
       </section>
     </div>
