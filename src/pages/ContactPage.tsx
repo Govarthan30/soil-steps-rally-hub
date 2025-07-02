@@ -293,7 +293,7 @@ const ContactPage = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Enter your full name"
-                        className="mt-1 border-primary/20 focus:border-primary transition-colors"
+                        className="mt-1 border-primary/20 focus:border-primary transition-colors placeholder-blue-500"
                         required
                       />
                     </div>
