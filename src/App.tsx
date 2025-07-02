@@ -13,7 +13,7 @@ import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-
+import Gallery from "./pages/GalleryPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +30,7 @@ const App = () => (
                 <Route path="/" element={<HomePage />} />
                 <Route path="/vision" element={<VisionPage />} />
                 <Route path="/mission" element={<MissionPage />} />
+                <Route path="/gallery" element={<Gallery />} />
                 <Route path="/workshops" element={<WorkshopsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="*" element={<NotFound />} />
