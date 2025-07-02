@@ -6,16 +6,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const images = [
-  "https://images.unsplash.com/photo-1603575448360-5a7b10f3f267",
-  "https://images.unsplash.com/photo-1588072432836-e10032774350",
-  "https://images.unsplash.com/photo-1530882548122-0596ee66cdfd",
-  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-  "https://images.unsplash.com/photo-1558024920-b79b7455cb05",
-  "https://images.unsplash.com/photo-1581090700227-1e8a8f7f01d1",
-  "https://images.unsplash.com/photo-1611486213171-8f18c869611b",
-  "https://images.unsplash.com/photo-1604014237610-7c1f7e87e7c6",
-  "https://images.unsplash.com/photo-1543269865-cbf427effbad"
+  "https://images.unsplash.com/photo-1501004318641-b39e6451bec6", // 1 - Forest
+  "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368", // 2 - Tree close-up
+  "https://images.unsplash.com/photo-1473773508845-188df298d2d1", // 3 - Forest path
+  "https://images.unsplash.com/photo-1592861956120-e524fc739696", // 4 - Tree with sun
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb", // ✅ NEW 5 - Lush green hill with trees
+  "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92", // 6 - Tropical plants
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb", // ✅ NEW 7 - Trail in forest
+  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05", // 8 - Tree canopy
+  "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb"      // ✅ NEW 9 - Tree in open nature
 ];
+
+
 
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);

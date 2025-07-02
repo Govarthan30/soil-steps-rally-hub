@@ -1,21 +1,59 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./images/logo.png";
+
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "Vision", path: "/vision" },
+  { name: "Mission", path: "/mission" },
+  { name: "Workshops", path: "/workshops" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Contact", path: "/contact" },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0, y: -30, scaleY: 0.8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scaleY: 1,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+      when: "beforeChildren",
+      staggerChildren: 0.05,
+      delayChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -30,
+    scaleY: 0.8,
+    transition: {
+      duration: 0.3,
+      ease: [0.65, 0, 0.35, 1],
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.25,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Vision", path: "/vision" },
-    { name: "Mission", path: "/mission" },
-    { name: "Workshops", path: "/workshops" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Contact", path: "/contact" },
-  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -39,21 +77,19 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <div className="flex space-x-6">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                    isActive(item.path)
-                      ? "text-soil-water bg-soil-water/10 shadow-sm"
-                      : "text-foreground/80 hover:text-soil-water hover:bg-soil-water/5"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  isActive(item.path)
+                    ? "text-soil-water bg-soil-water/10 shadow-sm"
+                    : "text-foreground/80 hover:text-soil-water hover:bg-soil-water/5"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
             <ThemeToggle />
           </div>
 
@@ -69,27 +105,36 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur-sm border-t border-border/40">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    isActive(item.path)
-                      ? "text-soil-water bg-soil-water/10"
-                      : "text-foreground/80 hover:text-soil-water hover:bg-soil-water/5"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="md:hidden origin-top overflow-hidden bg-background/95 backdrop-blur-sm border-t border-border/40"
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                {navItems.map((item) => (
+                  <motion.div key={item.name} variants={itemVariants}>
+                    <Link
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                        isActive(item.path)
+                          ? "text-soil-water bg-soil-water/10"
+                          : "text-foreground/80 hover:text-soil-water hover:bg-soil-water/5"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
