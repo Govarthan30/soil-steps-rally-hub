@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { BookOpen, Users, Rocket, ArrowRight, Star, Target, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import Gallery from "./GalleryPage";
 
 const HomePage = () => {
   const [currentTagline, setCurrentTagline] = useState(0);
-  
+
   const taglines = [
     { icon: BookOpen, text: "Equal Access to Learning", color: "text-soil-green" },
     { icon: Rocket, text: "Empowering the Next Generation", color: "text-secondary" },
@@ -30,21 +31,20 @@ const HomePage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient text-white py-20 lg:py-32 relative overflow-hidden">
-        {/* Multiple Background Images */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
           }}
         />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fade-in">
             <h1 className="font-poppins font-bold text-4xl md:text-6xl lg:text-7xl mb-6">
@@ -52,12 +52,10 @@ const HomePage = () => {
               <br />
               <span className="text-gradient mission-float inline-block">KARKAI INDREY</span>
             </h1>
-            <div className="text-xl md:text-2xl lg:text-3xl font-medium mb-4">
-              A Rally of Education
-            </div>
-            
+            <div className="text-xl md:text-2xl lg:text-3xl font-medium mb-4">A Rally of Education</div>
+
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              A nationwide movement to bring education and inspiration to every child in India. 
+              A nationwide movement to bring education and inspiration to every child in India.
               <br />
               <span className="font-semibold">Powered by Passion, Driven by Purpose.</span>
               <br />
@@ -85,9 +83,9 @@ const HomePage = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="border-white text-white hover:bg-white hover:text-soil-green font-semibold px-8 py-3"
                 >
                   Join as Volunteer
@@ -107,23 +105,43 @@ const HomePage = () => {
                 <div className="flex justify-center mb-3">
                   <stat.icon className="h-8 w-8 text-soil-green" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 font-poppins">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 mt-1">
-                  {stat.label}
-                </div>
+                <div className="text-3xl font-bold text-gray-900 font-poppins">{stat.number}</div>
+                <div className="text-gray-600 mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="relative py-20 bg-gray-100 overflow-hidden">
+        {/* Decorative Top Curve */}
+        <div className="absolute top-0 left-0 w-full h-32 bg-white rounded-b-[50%] z-0" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-4 bg-gradient-to-r from-green-900 via-gray-700 to-black bg-clip-text text-transparent drop-shadow-lg">
+              🌟 Glimpses of Our Journey
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Capturing the smiles, spirit, and spark of change from our workshops and rallies.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] bg-white shadow-2xl p-4 md:p-8 border border-gray-200 hover:shadow-[0_10px_60px_rgba(0,0,0,0.1)] transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-[1.01]">
+            <Gallery />
+          </div>
+        </div>
+
+        {/* Decorative Bottom Curve */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-white rounded-t-[50%] z-0" />
+      </section>
+
       {/* Features Section */}
       <section className="section-gradient py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 mb-4">
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-green-900 mb-4">
               Why Choose <span className="text-gradient">Soil Steps</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -136,17 +154,17 @@ const HomePage = () => {
               <div className="w-12 h-12 bg-soil-green/10 rounded-lg flex items-center justify-center mb-4">
                 <BookOpen className="h-6 w-6 text-soil-green" />
               </div>
-              <h3 className="font-poppins font-semibold text-xl mb-3">Hands-on Learning</h3>
+              <h3 className="font-poppins font-semibold text-xl mb-3 bg-gradient-to-r from-green-900 via-gray-700 to-black bg-clip-text text-transparent">Hands-on Learning</h3>
               <p className="text-gray-600">
                 Interactive workshops that make complex concepts simple and engaging through practical experiments and activities.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg card-hover animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="w-12 h-12 bg-soil-yellow/10 rounded-lg flex items-center justify-center mb-4">
-                <Users className="h-6 w-6 text-soil-yellow" />
+            <div className="bg-white p-8 rounded-xl shadow-lg card-hover animate-fade-in">
+              <div className="w-12 h-12 bg-soil-green/10 rounded-lg flex items-center justify-center mb-4">
+                <Users className="h-6 w-6 text-soil-green" />
               </div>
-              <h3 className="font-poppins font-semibold text-xl mb-3">Community Impact</h3>
+              <h3 className="font-poppins font-semibold text-xl mb-3 bg-gradient-to-r from-green-900 via-gray-700 to-black bg-clip-text text-transparent">Community Impact</h3>
               <p className="text-gray-600">
                 Building a network of young leaders who carry forward the mission of education in their communities.
               </p>
@@ -156,7 +174,7 @@ const HomePage = () => {
               <div className="w-12 h-12 bg-soil-green/10 rounded-lg flex items-center justify-center mb-4">
                 <Rocket className="h-6 w-6 text-soil-green" />
               </div>
-              <h3 className="font-poppins font-semibold text-xl mb-3">Future Ready</h3>
+              <h3 className="font-poppins font-semibold text-xl mb-3 bg-gradient-to-r from-green-900 via-gray-700 to-black bg-clip-text text-transparent">Future Ready</h3>
               <p className="text-gray-600">
                 Preparing students for tomorrow's challenges with skills in science, technology, and innovative thinking.
               </p>
@@ -168,9 +186,7 @@ const HomePage = () => {
       {/* CTA Section */}
       <section className="bg-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
-            Ready to Join the Movement?
-          </h2>
+          <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">Ready to Join the Movement?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Be part of something bigger. Help us reach every child, every dream, every possibility.
           </p>

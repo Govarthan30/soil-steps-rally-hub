@@ -10,7 +10,6 @@ const navItems = [
   { name: "Vision", path: "/vision" },
   { name: "Mission", path: "/mission" },
   { name: "Workshops", path: "/workshops" },
-  { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
 ];
 
