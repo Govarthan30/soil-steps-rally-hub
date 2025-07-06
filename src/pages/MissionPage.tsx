@@ -12,7 +12,7 @@ const MissionPage = () => {
         "Community partnerships",
         "Inclusive education initiatives"
       ],
-      color: "soil-green"
+      color: "green-600"
     },
     {
       icon: BookOpen,
@@ -24,7 +24,7 @@ const MissionPage = () => {
         "Skill development programs",
         "Mentorship opportunities"
       ],
-      color: "soil-yellow"
+      color: "gray-500"
     },
     {
       icon: Target,
@@ -36,7 +36,7 @@ const MissionPage = () => {
         "Community engagement",
         "Peer-to-peer learning networks"
       ],
-      color: "soil-green"
+      color: "green-600"
     },
     {
       icon: Link,
@@ -48,7 +48,7 @@ const MissionPage = () => {
         "Industry connections",
         "Career guidance and counseling"
       ],
-      color: "soil-yellow"
+      color: "gray-500"
     },
     {
       icon: Zap,
@@ -60,24 +60,24 @@ const MissionPage = () => {
         "Future skills training",
         "Creative thinking development"
       ],
-      color: "soil-green"
+      color: "green-600"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-soil-yellow/10 rounded-full mb-6">
-              <Target className="h-8 w-8 text-soil-yellow animate-pulse-glow" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-200 rounded-full mb-6">
+              <Target className="h-8 w-8 text-gray-600" />
             </div>
-            <h1 className="font-poppins font-bold text-4xl md:text-6xl text-gray-900 mb-6">
-              Our <span className="text-gradient">Mission</span>
+            <h1 className="font-poppins font-bold text-4xl md:text-5xl text-gray-900 mb-6">
+              Our <span className="text-green-600">Mission</span>
             </h1>
-            <div className="w-24 h-1 bg-soil-yellow mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <div className="w-24 h-1 bg-green-600 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Five core missions that drive our commitment to transforming education 
               and empowering the next generation of leaders, innovators, and changemakers.
             </p>
@@ -92,10 +92,9 @@ const MissionPage = () => {
             {missions.map((mission, index) => (
               <div
                 key={index}
-                className={`animate-fade-in ${
+                className={`${
                   index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                 } flex flex-col lg:flex items-center gap-12`}
-                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Content */}
                 <div className="flex-1">
@@ -108,8 +107,8 @@ const MissionPage = () => {
                         {mission.title}
                       </h2>
                     </div>
-                    
-                    <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+
+                    <p className="text-base text-gray-700 mb-6 leading-relaxed">
                       {mission.description}
                     </p>
 
@@ -117,17 +116,17 @@ const MissionPage = () => {
                       {mission.points.map((point, pointIndex) => (
                         <div key={pointIndex} className="flex items-center space-x-3">
                           <div className={`w-2 h-2 bg-${mission.color} rounded-full flex-shrink-0`}></div>
-                          <span className="text-gray-700">{point}</span>
+                          <span className="text-gray-700 text-sm">{point}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Visual Element */}
+                {/* Icon Section */}
                 <div className="flex-1 flex justify-center">
-                  <div className={`w-64 h-64 bg-gradient-to-br from-${mission.color}/10 to-${mission.color}/20 rounded-2xl flex items-center justify-center card-hover`}>
-                    <mission.icon className={`h-24 w-24 text-${mission.color} animate-float`} />
+                  <div className={`w-64 h-64 bg-${mission.color}/10 rounded-2xl flex items-center justify-center`}>
+                    <mission.icon className={`h-24 w-24 text-${mission.color}`} />
                   </div>
                 </div>
               </div>
@@ -136,78 +135,59 @@ const MissionPage = () => {
         </div>
       </section>
 
-      {/* Impact Metrics */}
+      {/* Metrics */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 mb-4">
               Mission in Action
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               See how our missions translate into real-world impact across communities.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-soil-green/5 to-soil-green/10 p-8 rounded-2xl text-center animate-fade-in">
-              <div className="text-4xl font-bold text-soil-green mb-2">150+</div>
-              <div className="text-gray-700 font-medium">Students Reached</div>
-              <div className="text-sm text-gray-600 mt-2">Across 10+ cities in India</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-soil-yellow/5 to-soil-yellow/10 p-8 rounded-2xl text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="text-4xl font-bold text-soil-yellow mb-2">25+</div>
-              <div className="text-gray-700 font-medium">Workshops Conducted</div>
-              <div className="text-sm text-gray-600 mt-2">In science, farming & space</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-soil-green/5 to-soil-green/10 p-8 rounded-2xl text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="text-4xl font-bold text-soil-green mb-2">50+</div>
-              <div className="text-gray-700 font-medium">Student Volunteers</div>
-              <div className="text-sm text-gray-600 mt-2">Leading community initiatives</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-soil-yellow/5 to-soil-yellow/10 p-8 rounded-2xl text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <div className="text-4xl font-bold text-soil-yellow mb-2">100%</div>
-              <div className="text-gray-700 font-medium">Positive Feedback</div>
-              <div className="text-sm text-gray-600 mt-2">From students and parents</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-soil-green/5 to-soil-green/10 p-8 rounded-2xl text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
-              <div className="text-4xl font-bold text-soil-green mb-2">15+</div>
-              <div className="text-gray-700 font-medium">Innovation Projects</div>
-              <div className="text-sm text-gray-600 mt-2">Student-led initiatives</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-soil-yellow/5 to-soil-yellow/10 p-8 rounded-2xl text-center animate-fade-in" style={{ animationDelay: '1s' }}>
-              <div className="text-4xl font-bold text-soil-yellow mb-2">3</div>
-              <div className="text-gray-700 font-medium">Core Themes</div>
-              <div className="text-sm text-gray-600 mt-2">Art, Farming & Space</div>
-            </div>
+            {[
+              { number: "150+", label: "Students Reached" },
+              { number: "25+", label: "Workshops Conducted" },
+              { number: "50+", label: "Student Volunteers" },
+              { number: "100%", label: "Positive Feedback" },
+              { number: "15+", label: "Innovation Projects" },
+              { number: "3", label: "Core Themes" }
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`bg-gray-100 p-8 rounded-2xl text-center`}
+              >
+                <div className="text-4xl font-bold text-green-700 mb-2">{item.number}</div>
+                <div className="text-gray-700 font-medium">{item.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 hero-gradient text-white">
+      {/* CTA */}
+      <section className="py-20 bg-green-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
             Join Our Mission
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
+          <p className="text-lg mb-8 max-w-3xl mx-auto">
             Every mission needs passionate individuals who believe in the power of education. 
             Be part of this transformative journey and help us reach every child, every dream.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-soil-green font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 bg-white text-green-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
             >
               Become a Volunteer
             </a>
             <a
               href="/workshops"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-soil-green transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-green-700 transition-colors"
             >
               Explore Workshops
             </a>

@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { Sparkles, Send } from "lucide-react";
+import { Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
-const ContactPage = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+const ApplyPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    role: "",
+    motivation: "",
+  });
   const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -17,38 +23,36 @@ const ContactPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, message } = formData;
+    const { name, email, phone, role, motivation } = formData;
 
-    if (!name || !email || !message) {
+    if (!name || !email || !phone || !role || !motivation) {
       toast({
-        title: "Missing Information",
-        description: "Please fill out all fields to continue.",
+        title: "Missing Info 🧐",
+        description: "Please fill all fields to complete your application.",
         variant: "destructive",
       });
       return;
     }
 
     toast({
-      title: "Thanks for reaching out! 🙌",
-      description: "We'll get back to you shortly.",
+      title: "Application Submitted 🚀",
+      description: "Thank you for applying! We’ll get in touch soon.",
     });
 
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", role: "", motivation: "" });
   };
 
   return (
     <div
       className="min-h-screen bg-gradient-to-br from-green-900 via-emerald-900 to-green-800 py-20 px-4 relative overflow-hidden"
-      style={{
-        animation: "slideUp 0.7s ease-out",
-      }}
+      style={{ animation: "slideUp 0.7s ease-out" }}
     >
-      {/* Custom CSS for slideUp animation */}
+      {/* Embedded animation */}
       <style>{`
         @keyframes slideUp {
           from {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -61,10 +65,10 @@ const ContactPage = () => {
         <div className="text-center mb-12">
           <Sparkles className="w-8 h-8 text-white mx-auto animate-bounce mb-4" />
           <h1 className="font-poppins text-4xl md:text-5xl font-bold text-white mb-4">
-            Contact & Feedback
+            Apply Now
           </h1>
           <p className="text-blue-100 text-lg max-w-xl mx-auto">
-            Have questions, ideas, or feedback? Let us know — we’d love to hear from you!
+            Fill the form below to apply for volunteering, internships, or any open roles.
           </p>
         </div>
 
@@ -72,9 +76,11 @@ const ContactPage = () => {
           <CardHeader className="bg-gradient-to-r from-green-100 to-emerald-200 rounded-t-lg">
             <CardTitle className="font-poppins text-xl text-green-800 flex items-center">
                 <Send className="h-5 w-5 text-green-700 mr-3" />
-                Reach us Out
+                Application Form
             </CardTitle>
         </CardHeader>
+
+
 
           <CardContent className="p-6 space-y-6">
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -83,7 +89,7 @@ const ContactPage = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name"
+                placeholder="Full Name"
                 required
               />
               <Input
@@ -92,22 +98,35 @@ const ContactPage = () => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email"
+                placeholder="Email Address"
+                required
+              />
+              <Input
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone Number"
+                required
+              />
+              <Input
+                id="role"
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                placeholder="Role you're applying for (e.g., Volunteer, Intern)"
                 required
               />
               <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
+                id="motivation"
+                name="motivation"
+                value={formData.motivation}
                 onChange={handleChange}
-                placeholder="Your Message or Feedback"
+                placeholder="Tell us why you're interested"
                 required
               />
-              <Button
-                type="submit"
-                className="w-full bg-soil-green text-white hover:bg-soil-green/80"
-              >
-                Send Message
+              <Button type="submit" className="w-full bg-soil-green text-white hover:bg-soil-green/80">
+                Submit Application
               </Button>
             </form>
           </CardContent>
@@ -117,4 +136,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default ApplyPage;
