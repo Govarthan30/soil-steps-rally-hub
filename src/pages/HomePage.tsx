@@ -217,6 +217,41 @@ const HomePage = () => {
           </Link>
         </div>
       </section>
+      {/* Partner Section */}
+<section className="bg-white py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="font-poppins font-bold text-3xl md:text-4xl text-green-900 mb-6">
+      Our Partners
+    </h2>
+    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+      We’re proud to collaborate with organizations that share our vision for education and empowerment.
+    </p>
+
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center justify-center">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png"
+        alt="Partner 1"
+        className="mx-auto h-16 grayscale hover:grayscale-0 transition"
+      />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1024px-IBM_logo.svg.png"
+        alt="IBM"
+        className="mx-auto h-16 grayscale hover:grayscale-0 transition"
+      />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1024px-Apple_logo_black.svg.png"
+        alt="Apple"
+        className="mx-auto h-16 grayscale hover:grayscale-0 transition"
+      />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png"
+        alt="Microsoft"
+        className="mx-auto h-16 grayscale hover:grayscale-0 transition"
+      />
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
